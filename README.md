@@ -1,6 +1,6 @@
 # FCPXMLCodable
 
-![CocoaPods Version](https://cocoapod-badges.herokuapp.com/v/FCPXMLCodable/badge.png) [![Swift](https://img.shields.io/badge/swift-5.1-orange.svg?style=flat)](https://developer.apple.com/swift/) ![Platform](https://cocoapod-badges.herokuapp.com/p/FCPXMLCodable/badge.png)
+[![Swift](https://img.shields.io/badge/swift-5.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## Overview
 
