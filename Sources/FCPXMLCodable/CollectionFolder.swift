@@ -6,6 +6,7 @@
 
 import XMLCoder
 
+/// A container to group other collection elements.
 public struct CollectionFolder: XMLRepresentable {
 
     private enum CodingKeys: String, CodingKey {
@@ -14,13 +15,21 @@ public struct CollectionFolder: XMLRepresentable {
         case smartCollections = "smart-collection"
         case name
     }
-
+    
+    /// The collection subfolders contained in the collection folder.
     public var collectionFolders: [CollectionFolder] = []
+    
+    /// The keyword collections contained in the collection folder.
     public var keywordCollections: [KeywordCollection] = []
+    
+    /// The smart collections contained in the collection folder.
     public var smartCollections: [SmartCollection] = []
-
+    
+    /// The name of the collection folder.
     public var name: String
-
+    
+    /// Initializes a new collection folder.
+    /// - Parameter name: The name of the collection folder.
     public init(name: String) {
         self.name = name
     }

@@ -6,6 +6,7 @@
 
 import XMLCoder
 
+/// Modifies the compositing blend mode and opacity percentage of the visible image.
 public struct Blend: XMLRepresentable {
 
     private enum CodingKeys: String, CodingKey {
@@ -15,10 +16,13 @@ public struct Blend: XMLRepresentable {
         case mode
     }
 
+    /// The parameters of the blend adjustment.
     public var parameters: [Parameter] = []
+
+    /// The reserved field of the blend adjustment.
     public var reserved: String?
     
-    /// The amount of the blend adjustment.
+    /// The amount of the blend adjustment, from 0.0 to 1.0.
     public var amount: Double {
         get { return _amount ?? 1.0 }
         set { return _amount = newValue }
