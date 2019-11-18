@@ -14,15 +14,23 @@ public struct MaskIsolation: XMLRepresentable {
         case name, enabled
         case _blendMode = "blendMode"
     }
-
+    
+    /// The data associated with the mask isolation.
     public var data: KeyedData?
+    
+    /// The parameters associated with the mask isolation.
     public var parameters: [Parameter] = []
-
+    
+    /// The name of the mask isolation.
     public var name: String?
+    
+    /// A Boolean value indicating whether the mask isolation is enabled.
     public var isEnabled: Bool {
         get { return enabled ?? true }
         set { enabled = newValue }
     }
+    
+    /// The blend mode of the mask isolation.
     public var blendMode: BlendMode {
         get { return _blendMode ?? .multiply }
         set { _blendMode = newValue }
@@ -30,7 +38,10 @@ public struct MaskIsolation: XMLRepresentable {
 
     private var enabled: Bool?
     private var _blendMode: BlendMode?
-
+    
+    /// Initializes a new mask isolation.
+    /// - Parameter name: The name of the mask isolation.
+    /// - Parameter blendMode: The blend mode of the mask isolation.
     public init(name: String? = nil, blendMode: BlendMode = .multiply) {
         self.name = name
         self._blendMode = blendMode

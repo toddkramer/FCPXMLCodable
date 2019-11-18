@@ -13,15 +13,30 @@ public struct Reorient: XMLRepresentable {
         case isEnabled = "enabled"
         case tilt, pan, roll, convergence
     }
-
+    
+    /// The parameters associated with the reorient adjustment.
     public var parameters: [Parameter] = []
-
+    
+    /// A Boolean value indicating whether the reorient adjustment is enabled.
     public var isEnabled: Bool = true
+    
+    /// The tilt of the reorient adjustment.
     public var tilt: Double
+    
+    /// The pan of the reorient adjustment.
     public var pan: Double
+    
+    /// The roll of the reorient adjustment.
     public var roll: Double
+    
+    /// The convergence of the reorient adjustment.
     public var convergence: Double
-
+    
+    /// Initializes a new reorient adjustment.
+    /// - Parameter tilt: The tilt of the reorient adjustment.
+    /// - Parameter pan: The pan of the reorient adjustment.
+    /// - Parameter roll: The roll of the reorient adjustment.
+    /// - Parameter convergence: The convergence of the reorient adjustment.
     public init(tilt: Double, pan: Double, roll: Double, convergence: Double) {
         self.tilt = tilt
         self.pan = pan

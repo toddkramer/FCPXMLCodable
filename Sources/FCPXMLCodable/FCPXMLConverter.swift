@@ -34,24 +34,34 @@ public struct FCPXMLConverter {
         encoder.dateEncodingStrategy = .formatted(dateFormatter)
         return encoder
     }()
-
+    
+    /// Converts an XML string to a FCPXMLDocument value.
+    /// - Parameter xmlString: The XML string to be converted.
     public static func fcpxmlDocument(from xmlString: String) throws -> FCPXMLDocument {
         guard let data = xmlString.data(using: .utf8) else { throw FCPXMLError.invalidXMLString }
         return try xmlDecoder.decode(FCPXMLDocument.self, from: data)
     }
-
+    
+    /// Converts a FCPXMLDocument value to a XML string.
+    /// - Parameter fcpxmlDocument: The FCPXMLDocument to be converted.
     public static func xmlString(from fcpxmlDocument: FCPXMLDocument) throws -> String {
         let header = XMLHeader(version: 1.0, encoding: "UTF-8", standalone: "no")
         let data = try xmlEncoder.encode(fcpxmlDocument, withRootKey: "fcpxml", header: header)
         guard let xmlString = String(data: data, encoding: .utf8)?.convertXMLBooleanOutputToNumeric() else { throw FCPXMLError.invalidXMLString }
         return xmlString
     }
-
+    
+    /// A generic function for decoding a FCPXML element from a valid XML string.
+    /// - Parameter type: The type that represents the XML element in Swift.
+    /// - Parameter xmlString: The XML string to be decoded.
     public static func decode<T: Decodable>(_ type: T.Type, from xmlString: String) throws -> T {
         guard let data = xmlString.data(using: .utf8) else { throw FCPXMLError.invalidXMLString }
         return try xmlDecoder.decode(T.self, from: data)
     }
-
+    
+    /// A generic function that converts a FCPXML element from its Swift representation to a XML string.
+    /// - Parameter fcpxmlElement: The FCPXML element to be converted.
+    /// - Parameter rootKey: The XML root key to use for the FCPXML element.
     public static func xmlString<T: Encodable>(from fcpxmlElement: T, rootKey: String) throws -> String {
         let data = try xmlEncoder.encode(fcpxmlElement, withRootKey: rootKey)
         guard let xmlString = String(data: data, encoding: .utf8)?.convertXMLBooleanOutputToNumeric() else { throw FCPXMLError.invalidXMLString }
@@ -59,6 +69,9 @@ public struct FCPXMLConverter {
     }
 
     #if os(macOS)
+    /// Converts a FCPXMLDocument to a XMLDocument. The returned XMLDocument uses an empty DTD so that its string representation does not include
+    /// the full FCPXML DTD. For validation use the `validateFCPXML` method included as an extension on XMLDocument.
+    /// - Parameter fcpxmlDocument: <#fcpxmlDocument description#>
     public static func xmlDocument(from fcpxmlDocument: FCPXMLDocument) throws -> XMLDocument {
         let xmlString = try self.xmlString(from: fcpxmlDocument)
         let document = try XMLDocument(xmlString: xmlString, options: [])

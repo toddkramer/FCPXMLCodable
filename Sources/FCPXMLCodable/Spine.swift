@@ -24,24 +24,53 @@ public struct Spine: XMLRepresentable, ClipItemOrdering, Offsettable {
         case lane, offset, name
         case formatID = "format"
     }
-
+    
+    /// The audios contained in the spine.
     public var audios: [Audio] = []
+    
+    /// The videos contained in the spine.
     public var videos: [Video] = []
+    
+    /// The clips contained in the spine.
     public var clips: [Clip] = []
+    
+    /// The titles contained in the spine.
     public var titles: [Title] = []
+    
+    /// The multicam clips contained in the spine.
     public var multicamClips: [MulticamClip] = []
+    
+    /// The reference clips contained in the spine.
     public var referenceClips: [ReferenceClip] = []
+    
+    /// The sync clips contained in the spine.
     public var syncClips: [SyncClip] = []
+    
+    /// The asset clips contained in the spine.
     public var assetClips: [AssetClip] = []
+    
+    /// The auditions contained in the spine.
     public var auditions: [Audition] = []
+    
+    /// The gaps contained in the spine.
     public var gaps: [Gap] = []
+    
+    /// The transitions contained in the spine.
     public var transitions: [Transition] = []
-
+    
+    /// The lane of the spine.
     public var lane: Int?
+    
+    /// The offset of the spine.
     public var offset: CMTime?
+    
+    /// The name of the spine.
     public var name: String?
+    
+    /// The identifier of the `Format` resource referenced by the asset.
     public var formatID: String?
 
+    /// :nodoc:
     public init() {}
 
     /// :nodoc:

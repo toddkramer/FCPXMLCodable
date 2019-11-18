@@ -12,10 +12,16 @@ public struct KeyedData: XMLRepresentable {
         case key
         case value = ""
     }
-
+    
+    /// The key of the keyed data.
     public var key: String?
+    
+    /// The value of the keyed data.
     public var value: String
-
+    
+    /// Initializes a new keyed data value.
+    /// - Parameter key: The key of the keyed data.
+    /// - Parameter value: The value of the keyed data.
     public init(key: String? = nil, value: String) {
         self.key = key
         self.value = value

@@ -12,11 +12,15 @@ public struct Volume: XMLRepresentable {
         case parameters = "param"
         case amount
     }
-
+    
+    /// The parameters associated with the volume adjustment.
     public var parameters: [Parameter] = []
-
+    
+    /// The amount of the volume adjustment.
     public var amount: Double
-
+    
+    /// Initializes a new volume adjustment.
+    /// - Parameter amount: The amount of the volume adjustment.
     public init(amount: Double) {
         self.amount = amount
     }

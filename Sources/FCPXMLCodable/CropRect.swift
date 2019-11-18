@@ -6,19 +6,34 @@
 
 import XMLCoder
 
+/// Defines the crop values of a crop adjustment.
 public struct CropRect: XMLRepresentable {
 
     private enum CodingKeys: String, CodingKey {
         case parameters = "param"
         case left, top, right, bottom
     }
-
+    
+    /// The parameters associated with the crop rect.
     public var parameters: [Parameter] = []
+    
+    /// The left value of the crop rect.
     public var left: Double
+    
+    /// The top value of the crop rect.
     public var top: Double
+    
+    /// The right value of the crop rect.
     public var right: Double
+    
+    /// The bottom value of the crop rect.
     public var bottom: Double
-
+    
+    /// Initializes a new crop rect.
+    /// - Parameter left: The left value of the crop rect.
+    /// - Parameter top: The top value of the crop rect.
+    /// - Parameter right: The right value of the crop rect.
+    /// - Parameter bottom: The bottom value of the crop rect.
     public init(left: Double, top: Double, right: Double, bottom: Double) {
         self.left = left
         self.top = top
@@ -26,6 +41,7 @@ public struct CropRect: XMLRepresentable {
         self.bottom = bottom
     }
 
+    /// :nodoc:
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         left = try container.decodeIfPresent(Double.self, forKey: .left) ?? 0

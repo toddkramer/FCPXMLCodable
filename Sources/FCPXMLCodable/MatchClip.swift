@@ -12,15 +12,42 @@ public struct MatchClip: XMLRepresentable {
         case isEnabled = "enabled"
         case rule, type
     }
-
+    
+    /// Specifies the possible item types to match for a clip match.
     public enum ItemType: String, XMLRepresentable {
-        case audition, synchronized, compound, multicam, layeredGraphic, project
+
+        /// :nodoc:
+        case audition
+
+        /// :nodoc:
+        case synchronized
+
+        /// :nodoc:
+        case compound
+
+        /// :nodoc:
+        case multicam
+
+        /// :nodoc:
+        case layeredGraphic
+
+        /// :nodoc:
+        case project
+
     }
-
+    
+    /// A Boolean value indicating whether the clip match is enabled.
     public var isEnabled: Bool = true
+    
+    /// The rule to use for the clip match.
     public var rule: Rule
+    
+    /// The item type to match.
     public var type: ItemType
-
+    
+    /// Initializes a new clip match.
+    /// - Parameter rule: The rule to use for the clip match, `isExactly` by default.
+    /// - Parameter type: The item type to match.
     public init(rule: Rule = .isExactly, type: ItemType) {
         self.rule = rule
         self.type = type

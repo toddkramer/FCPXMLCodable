@@ -13,15 +13,30 @@ public struct Orientation: XMLRepresentable {
         case isEnabled = "enabled"
         case tilt, pan, roll, fieldOfView
     }
-
+    
+    /// The parameters associated with the orientation adjustment.
     public var parameters: [Parameter] = []
-
+    
+    /// A Boolean value indicating whether the orientation adjustment is enabled.
     public var isEnabled: Bool = true
+    
+    /// The tilt of the orientation adjustment.
     public var tilt: Double
+    
+    /// The pan of the orientation adjustment.
     public var pan: Double
+    
+    /// The roll of the orientation adjustment.
     public var roll: Double
+    
+    /// The field of view of the orientation adjustment.
     public var fieldOfView: Double?
-
+    
+    /// Initializes a new orientation adjustment.
+    /// - Parameter tilt: The tilt of the orientation adjustment.
+    /// - Parameter pan: The pan of the orientation adjustment.
+    /// - Parameter roll: The roll of the orientation adjustment.
+    /// - Parameter fieldOfView: The field of view of the orientation adjustment.
     public init(tilt: Double, pan: Double, roll: Double, fieldOfView: Double? = nil) {
         self.tilt = tilt
         self.pan = pan
@@ -29,6 +44,7 @@ public struct Orientation: XMLRepresentable {
         self.fieldOfView = fieldOfView
     }
 
+    /// :nodoc:
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         isEnabled = try container.decodeIfPresent(Bool.self, forKey: .isEnabled) ?? true

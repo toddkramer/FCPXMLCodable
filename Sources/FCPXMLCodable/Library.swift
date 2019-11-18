@@ -14,19 +14,35 @@ public struct Library: XMLRepresentable {
         case location
         case colorProcessing
     }
-
+    
+    /// Specifies the possible color processing modes of a library.
     public enum ColorProcessing: String, Codable {
+
+        /// :nodoc:
         case standard
+
+        /// :nodoc:
         case wide
+
+        /// :nodoc:
         case wideHDR = "wide-hdr"
+
     }
-
+    
+    /// The events contained in the library.
     public var events: [Event] = []
+    
+    /// The smart collections contained in the library.
     public var smartCollections: [SmartCollection] = []
-
+    
+    /// The location of the library.
     public var location: String?
+    
+    /// The color processing mode of the library.
     public var colorProcessing: ColorProcessing?
-
+    
+    /// Initializes a new library.
+    /// - Parameter location: The location of the library.
     public init(location: String? = nil) {
         self.location = location
     }

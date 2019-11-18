@@ -23,22 +23,49 @@ public struct MulticamAngle: XMLRepresentable, ClipItemOrdering {
         case transitions = "transition"
         case name, angleID
     }
-
+    
+    /// The audios contained in the multicam angle.
     public var audios: [Audio] = []
+    
+    /// The videos contained in the multicam angle.
     public var videos: [Video] = []
+    
+    /// The clips contained in the multicam angle.
     public var clips: [Clip] = []
+    
+    /// The titles contained in the multicam angle.
     public var titles: [Title] = []
+    
+    /// The multicam clips contained in the multicam angle.
     public var multicamClips: [MulticamClip] = []
+    
+    /// The reference clips contained in the multicam angle.
     public var referenceClips: [ReferenceClip] = []
+    
+    /// The sync clips contained in the multicam angle.
     public var syncClips: [SyncClip] = []
+    
+    /// The asset clips contained in the multicam angle.
     public var assetClips: [AssetClip] = []
+    
+    /// The auditions contained in the multicam angle.
     public var auditions: [Audition] = []
+    
+    /// The gaps contained in the multicam angle.
     public var gaps: [Gap] = []
+    
+    /// The transitions contained in the multicam angle.
     public var transitions: [Transition] = []
-
+    
+    /// The name of the multicam angle.
     public var name: String?
+    
+    /// The identifier of the multicam angle.
     public var angleID: String
-
+    
+    /// Initializes a new multicam angle.
+    /// - Parameter name: The name of the multicam angle.
+    /// - Parameter angleID: The identifier of the multicam angle.
     public init(name: String? = nil, angleID: String) {
         self.name = name
         self.angleID = angleID

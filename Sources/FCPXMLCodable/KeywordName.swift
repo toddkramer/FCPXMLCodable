@@ -7,9 +7,12 @@
 import XMLCoder
 
 public struct KeywordName: XMLRepresentable {
-
+    
+    /// The value of the keyword name.
     public var value: String
-
+    
+    /// Initializes a new keyword name.
+    /// - Parameter value: The value of the keyword name.
     public init(value: String) {
         self.value = value
     }

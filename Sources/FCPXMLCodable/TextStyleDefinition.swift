@@ -12,11 +12,18 @@ public struct TextStyleDefinition: XMLRepresentable {
         case textStyles = "text-style"
         case id, name
     }
-
+    
+    /// The text styles of the text style definition.
     public var textStyles: [TextStyle] = []
+    
+    /// The identifier of the text style definition.
     public let id: String
+    
+    /// The name of the text style definition.
     public var name: String?
-
+    
+    /// Initializes a new text style definition.
+    /// - Parameter id: The identifier of the text style definition.
     public init(id: String) {
         self.id = id
     }

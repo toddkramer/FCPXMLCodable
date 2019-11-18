@@ -6,11 +6,7 @@
 
 import XMLCoder
 
-/*
- <!ELEMENT smart-collection ((match-text | match-ratings | match-media | match-clip | match-stabilization | match-keywords | match-shot | match-property | match-time | match-timeRange | match-roles)*)>
- <!ATTLIST smart-collection name CDATA #REQUIRED>
- <!ATTLIST smart-collection match (any | all) #REQUIRED>
- */
+
 public struct SmartCollection: XMLRepresentable {
 
     private enum CodingKeys: String, CodingKey {
@@ -27,26 +23,60 @@ public struct SmartCollection: XMLRepresentable {
         case matchRoles = "match-roles"
         case name, match
     }
-
+    
+    /// Specifies the possible match criteria modes for a smart collection.
     public enum MatchCriteria: String, Codable {
-        case any, all
+
+        /// :nodoc:
+        case any
+
+        /// :nodoc:
+        case all
+
     }
-
+    
+    /// The text matches of the smart collection.
     public var matchTexts: [MatchText] = []
+    
+    /// The ratings matches of the smart collection.
     public var matchRatings: [MatchRatings] = []
+    
+    /// The media matches of the smart collection.
     public var matchMedias: [MatchMedia] = []
+    
+    /// The clip matches of the smart collection.
     public var matchClips: [MatchClip] = []
+    
+    /// The stabilization type matches of the smart collection.
     public var matchStabilizations: [MatchStabilization] = []
+    
+    /// The keywords matches of the smart collection.
     public var matchKeywords: [MatchKeywords] = []
+    
+    /// The shot type matches of the smart collection.
     public var matchShots: [MatchShot] = []
+    
+    /// The property matches of the smart collection.
     public var matchProperties: [MatchProperty] = []
+    
+    /// The time matches of the smart collection.
     public var matchTimes: [MatchTime] = []
+    
+    /// The time range matches of the smart collection.
     public var matchTimeRanges: [MatchTimeRange] = []
+    
+    /// The role matches of the smart collection.
     public var matchRoles: [MatchRoles] = []
-
+    
+    /// The name of the smart collection.
     public var name: String
+    
+    /// The match criteria to apply to the smart collection.
     public var match: MatchCriteria
-
+    
+    /// Initializes a new smart collection.
+    /// - Parameter name: The name of the smart collection.
+    /// - Parameter match: The match criteria to apply to the smart collection.
     public init(name: String, match: MatchCriteria) {
         self.name = name
         self.match = match

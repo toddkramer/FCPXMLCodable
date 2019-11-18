@@ -21,28 +21,52 @@ public struct Transition: XMLRepresentable, Offsettable {
         case reserved
         case name, offset, duration
     }
-
+    
+    /// The video filters applied to the transition.
     public var videoFilters: [VideoFilter] = []
+    
+    /// The audio filters applied to the transition.
     public var audioFilters: [AudioFilter] = []
-
+    
+    /// The markers attached to the transition.
     public var markers: [Marker] = []
+    
+    /// The chapter markers attached to the transition.
     public var chapterMarkers: [ChapterMarker] = []
+    
+    /// The ratings associated with the transition.
     public var ratings: [Rating] = []
+    
+    /// The keywords associated with the transition.
     public var keywords: [Keyword] = []
+    
+    /// The analysis markers attached to the transition.
     public var analysisMarkers: [AnalysisMarker] = []
-
+    
+    /// The metadata associated with the transition.
     public var metadata: [Metadatum]? {
         get { return _metadata?.metadata }
         set { _metadata = Metadata(metadata: newValue) }
     }
+    
+    /// The reserved field of the transition.
     public var reserved: String?
-
+    
+    /// The name of the transition.
     public var name: String?
+    
+    /// The offset of the transition.
     public var offset: CMTime?
+    
+    /// The duration of the transition.
     public var duration: CMTime
 
     private var _metadata: Metadata?
-
+    
+    /// Initializes a new transition.
+    /// - Parameter offset: The offset of the transition.
+    /// - Parameter name: The name of the transition.
+    /// - Parameter duration: The duration of the transition.
     public init(offset: CMTime = .zero, name: String? = nil, duration: CMTime) {
         self.offset = offset
         self.name = name

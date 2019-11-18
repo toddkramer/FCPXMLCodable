@@ -7,10 +7,16 @@
 import XMLCoder
 
 public struct Loudness: XMLRepresentable {
-
+    
+    /// The amount of the loudness adjustment.
     public var amount: Double
+    
+    /// The uniformity of the loudness adjustment.
     public var uniformity: Double
-
+    
+    /// Initializes a new loudness adjustment.
+    /// - Parameter amount: The amount of the loudness adjustment.
+    /// - Parameter uniformity: The uniformity of the loudness adjustment.
     public init(amount: Double, uniformity: Double) {
         self.amount = amount
         self.uniformity = uniformity

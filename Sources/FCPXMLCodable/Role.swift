@@ -7,9 +7,12 @@
 import XMLCoder
 
 public struct Role: XMLRepresentable {
-
+    
+    /// The name of the role.
     public var name: String
-
+    
+    /// Initializes a new role.
+    /// - Parameter name: The name of the role.
     public init(name: String) {
         self.name = name
     }

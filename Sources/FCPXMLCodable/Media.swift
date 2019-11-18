@@ -15,16 +15,34 @@ public struct Media: Resource {
         case dateModified = "modDate"
         case projectID = "projectRef"
     }
-
+    
+    /// The multicam contained in the media.
     public var multicam: Multicam?
+    
+    /// The sequence contained in the media.
     public var sequence: Sequence?
 
+    /// The identifier of the media.
+    /// This identifier is unique within the context of a FCPXML document and refers to the resource identifier (e.g. r1).
     public let id: String
+    
+    /// The name of the media.
     public var name: String?
+    
+    /// The unique identifier of the media.
     public var uid: String?
+    
+    /// The identifier of the associated project.
     public var projectID: String?
+    
+    /// The date modified of the media.
     public var dateModified: Date?
-
+    
+    /// Initializes a new media with a resource identifier.
+    /// - Parameter id: The identifier of the media.
+    /// - Parameter name: The name of the media.
+    /// - Parameter uid: The unique identifier of the media.
+    /// - Parameter dateModified: The date modified of the media.
     public init(id: String, name: String? = nil, uid: String? = nil, dateModified: Date? = nil) {
         self.id = id
         self.name = name

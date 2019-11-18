@@ -14,14 +14,27 @@ public struct Project: XMLRepresentable {
         case name, uid, id
         case dateModified = "modDate"
     }
-
+    
+    /// The sequence contained in the project.
     public var sequence: Sequence
-
+    
+    /// The name of the project.
     public var name: String?
+    
+    /// The unique identifier of the project.
     public var uid: String?
+    
+    /// The identifier of the project.
     public var id: String?
+    
+    /// The date modified of the project.
     public var dateModified: Date?
-
+    
+    /// Initializes a new project.
+    /// - Parameter name: The name of the project.
+    /// - Parameter uid: The unique identifer of the project.
+    /// - Parameter dateModified: The date modified of the project.
+    /// - Parameter sequence: The sequence contained in the project.
     public init(name: String? = nil, uid: String? = nil, dateModified: Date? = nil, sequence: Sequence) {
         self.name = name
         self.uid = uid

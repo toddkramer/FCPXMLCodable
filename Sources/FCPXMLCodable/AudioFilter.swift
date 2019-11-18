@@ -22,7 +22,7 @@ public struct AudioFilter: XMLRepresentable {
     /// The parameters associated with the audio filter.
     public var parameters: [Parameter] = []
 
-    /// The identifier of the `Effect` referenced by this audio filter.
+    /// The identifier of the `Effect` resource referenced by this audio filter.
     public let effectID: String
 
     /// The name of the audio filter.

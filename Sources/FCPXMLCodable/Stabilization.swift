@@ -12,20 +12,34 @@ public struct Stabilization: XMLRepresentable {
         case parameters = "param"
         case _type = "type"
     }
-
+    
+    /// Specifies the possible modes of a stabilization adjustment.
     public enum Mode: String, XMLRepresentable {
-        case automatic, inertiaCam, smoothCam
+
+        /// :nodoc:
+        case automatic
+
+        /// :nodoc:
+        case inertiaCam
+
+        /// :nodoc:
+        case smoothCam
+
     }
-
+    
+    /// The parameters associated with the stabilization adjustment.
     public var parameters: [Parameter] = []
-
+    
+    /// The type of the stabilization adjustment.
     public var type: Mode {
         get { return _type ?? .automatic }
         set { _type = newValue }
     }
 
     private var _type: Mode?
-
+    
+    /// Initializes a stabilization adjustment.
+    /// - Parameter type: The type of the stabilization adjustment, `automatic` by default.
     public init(type: Mode = .automatic) {
         self._type = type
     }

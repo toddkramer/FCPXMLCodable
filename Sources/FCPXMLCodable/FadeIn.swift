@@ -13,15 +13,22 @@ public struct FadeIn: XMLRepresentable {
         case type
         case duration
     }
-
+    
+    /// The type of the fade in effect.
     public var type: FadeType
+    
+    /// The duration of the fade in effect.
     public var duration: CMTime
-
+    
+    /// Initializes a new fade in effect.
+    /// - Parameter type: The type of the fade in effect, `easeIn` by default.
+    /// - Parameter duration: The duration of the fade in effect.
     public init(type: FadeType = .easeIn, duration: CMTime) {
         self.type = type
         self.duration = duration
     }
 
+    /// :nodoc:
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decodeIfPresent(FadeType.self, forKey: .type) ?? .easeIn

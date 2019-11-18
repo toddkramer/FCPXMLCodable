@@ -17,26 +17,61 @@ public struct Text: XMLRepresentable {
         case placement
         case alignment
     }
-
+    
+    /// Specifies the possible display styles of a text element.
     public enum DisplayStyle: String, Codable {
+
+        /// :nodoc:
         case popOn = "pop-on"
+
+        /// :nodoc:
         case paintOn = "paint-on"
+
+        /// :nodoc:
         case rollUp = "roll-up"
-    }
 
+    }
+    
+    /// Specifies the possible placements of a text element.
     public enum Placement: String, Codable {
-        case left, right, top, bottom
+
+        /// :nodoc:
+        case left
+
+        /// :nodoc:
+        case right
+
+        /// :nodoc:
+        case top
+
+        /// :nodoc:
+        case bottom
+
     }
-
+    
+    /// The value of the text.
     public var value: String?
+    
+    /// The text styles of the text.
     public var textStyles: [TextStyle] = []
-
+    
+    /// The display style of the text.
     public var displayStyle: DisplayStyle?
+    
+    /// The roll up height of the text.
     public var rollUpHeight: Double?
+    
+    /// The position of the text.
     public var position: Point?
+    
+    /// The placement of the text.
     public var placement: Placement
+    
+    /// The alignment of the text.
     public var alignment: TextAlignment?
-
+    
+    /// Initializes a new text.
+    /// - Parameter placement: The placement of the text, `bottom` by default.
     public init(placement: Placement = .bottom) {
         self.placement = placement
     }

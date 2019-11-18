@@ -13,16 +13,19 @@ public struct MatchShot: XMLRepresentable {
         case isEnabled = "enabled"
         case rule
     }
-
-    public enum Value: String, Codable {
-        case favorites, rejected
-    }
-
+    
+    /// The shot types to match.
     public var shotTypes: [ShotType]
-
+    
+    /// A Boolean value indicating whether the shot type match is enabled.
     public var isEnabled: Bool = true
+    
+    /// The rule to use for the shot type match.
     public var rule: Rule
-
+    
+    /// Initializes a new shot type match.
+    /// - Parameter rule: The rule to use for the shot type match, `includesAny` by default.
+    /// - Parameter shotTypes: The shot types to match.
     public init(rule: Rule = .includesAny, shotTypes: [ShotType]) {
         self.rule = rule
         self.shotTypes = shotTypes

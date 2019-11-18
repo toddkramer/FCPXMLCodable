@@ -13,16 +13,19 @@ public struct MatchStabilization: XMLRepresentable {
         case isEnabled = "enabled"
         case rule
     }
-
-    public enum Value: String, Codable {
-        case favorites, rejected
-    }
-
+    
+    /// The stabilization types to match.
     public var stabilizationTypes: [StabilizationType]
-
+    
+    /// A Boolean value indicating whether the stabilization type match is enabled.
     public var isEnabled: Bool = true
+    
+    /// The rule to use for the stabilization type match.
     public var rule: Rule
-
+    
+    /// Initializes a new stabilization type match.
+    /// - Parameter rule: The rule to use for the stabilization type match, `includesAny` by default.
+    /// - Parameter stabilizationTypes: The stabilization types to match.
     public init(rule: Rule = .includesAny, stabilizationTypes: [StabilizationType]) {
         self.rule = rule
         self.stabilizationTypes = stabilizationTypes

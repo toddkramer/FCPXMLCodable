@@ -13,15 +13,30 @@ public struct Transform: XMLRepresentable {
         case isEnabled = "enabled"
         case position, scale, rotation, anchor
     }
-
+    
+    /// The parameters associated with the transform adjustment.
     public var parameters: [Parameter] = []
-
+    
+    /// A Boolean value indicating whether the transform adjustment is enabled.
     public var isEnabled: Bool = true
+    
+    /// The position of the transform adjustment.
     public var position: Point
+    
+    /// The scale of the transform adjustment.
     public var scale: Point
+    
+    /// The rotation of the transform adjustment.
     public var rotation: Double
+    
+    /// The anchor point of the transform adjustment.
     public var anchor: Point
-
+    
+    /// Initializes a new transform adjustment.
+    /// - Parameter position: The position of the transform adjustment.
+    /// - Parameter scale: The scale of the transform adjustment.
+    /// - Parameter rotation: The rotation of the transform adjustment.
+    /// - Parameter anchor: The anchor point of the transform adjustment.
     public init(position: Point, scale: Point, rotation: Double, anchor: Point) {
         self.position = position
         self.scale = scale

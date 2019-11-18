@@ -23,48 +23,93 @@ public struct TextStyle: XMLRepresentable {
         case shadowOffset, shadowBlurRadius, kerning, alignment, lineSpacing, tabStops, baselineOffset
         case isUnderlined = "underline"
     }
-
+    
+    /// The value of the text style.
     public var value: String?
+    
+    /// The parameters associated with the text style.
     public var parameters: [Parameter] = []
-
+    
+    /// The reference identifier of the text style.
     public var referenceID: String?
+    
+    /// The font of the text style.
     public var font: String?
+    
+    /// The font size of the text style.
     public var fontSize: Int?
+    
+    /// The font face of the text style.
     public var fontFace: String?
+    
+    /// The font color of the text style.
     public var fontColor: Color? {
         get { return _fontColor?.colorValue }
         set { _fontColor = newValue?.stringValue }
     }
+    
+    /// The background color of the text style.
     public var backgroundColor: Color? {
         get { return _backgroundColor?.colorValue }
         set { _backgroundColor = newValue?.stringValue }
     }
+    
+    /// A Boolean value indicating whether the text is bold.
     public var isBold: Bool?
+
+    /// A Boolean value indicating whether the text is in italics.
     public var isItalic: Bool?
+    
+    /// The stroke color of the text style.
     public var strokeColor: Color? {
         get { return _strokeColor?.colorValue }
         set { _strokeColor = newValue?.stringValue }
     }
+    
+    /// The stroke width of the text style.
     public var strokeWidth: Double?
+    
+    /// The baseline of the text style.
     public var baseline: Double?
+    
+    /// The shadow color of the text style.
     public var shadowColor: Color? {
         get { return _shadowColor?.colorValue }
         set { _shadowColor = newValue?.stringValue }
     }
+    
+    /// The shadow offset of the text style.
     public var shadowOffset: Double?
+    
+    /// The shadow blur radius of the text style.
     public var shadowBlurRadius: Double?
+    
+    /// The kerning of the text style.
     public var kerning: Double?
+    
+    /// The alignment of the text style.
     public var alignment: TextAlignment?
+    
+    /// The line spacing of the text style.
     public var lineSpacing: Double?
+    
+    /// The tab stops of the text style.
     public var tabStops: Double?
+    
+    /// The baseline offset of the text style.
     public var baselineOffset: Double?
+
+    /// A Boolean value indicating whether the text is underlined.
     public var isUnderlined: Bool?
 
     private var _fontColor: String?
     private var _backgroundColor: String?
     private var _strokeColor: String?
     private var _shadowColor: String?
-
+    
+    /// Initializes a new text style.
+    /// - Parameter referenceID: The reference identifier of the text style.
+    /// - Parameter value: The value of the text style.
     public init(referenceID: String? = nil, value: String? = nil) {
         self.referenceID = referenceID
         self.value = value

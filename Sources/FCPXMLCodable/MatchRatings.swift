@@ -12,14 +12,26 @@ public struct MatchRatings: XMLRepresentable {
         case isEnabled = "enabled"
         case value
     }
-
+    
+    /// Specifies the possible ratings values to match in a ratings match.
     public enum Value: String, Codable {
-        case favorites, rejected
+
+        /// :nodoc:
+        case favorites
+
+        /// :nodoc:
+        case rejected
+
     }
-
+    
+    /// A Boolean value indicating whether the ratings match is enabled.
     public var isEnabled: Bool = true
+    
+    /// The ratings value to match.
     public var value: Value
-
+    
+    /// Initializes a new ratings match.
+    /// - Parameter value: The ratings value to match.
     public init(value: Value) {
         self.value = value
     }

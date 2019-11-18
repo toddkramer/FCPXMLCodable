@@ -13,12 +13,19 @@ public struct MatchKeywords: XMLRepresentable {
         case isEnabled = "enabled"
         case rule
     }
-
+    
+    /// The keyword names to match.
     public var keywordNames: [KeywordName]
-
+    
+    /// A Boolean value indicating whether the keywords match is enabled.
     public var isEnabled: Bool = true
+    
+    /// The rule to use for the keywords match.
     public var rule: Rule
-
+    
+    /// Initializes a new keywords match.
+    /// - Parameter rule: The rule to use for the keywords match, `includesAny` by default.
+    /// - Parameter keywordNames: The keyword names to match.
     public init(rule: Rule = .includesAny, keywordNames: [KeywordName]) {
         self.rule = rule
         self.keywordNames = keywordNames

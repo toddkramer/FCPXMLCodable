@@ -6,19 +6,34 @@
 
 import XMLCoder
 
+/// /// Defines the trim values of a crop adjustment.
 public struct TrimRect: XMLRepresentable {
 
     private enum CodingKeys: String, CodingKey {
         case parameters = "param"
         case left, top, right, bottom
     }
-
+    
+    /// The parameters associated with the trim rect.
     public var parameters: [Parameter] = []
+    
+    /// The left value of the trim rect.
     public var left: Double
+    
+    /// The top value of the trim rect.
     public var top: Double
+    
+    /// The right value of the trim rect.
     public var right: Double
+    
+    /// The bottom value of the trim rect.
     public var bottom: Double
-
+    
+    /// Initializes a new trim rect.
+    /// - Parameter left: The left value of the trim rect.
+    /// - Parameter top: The top value of the trim rect.
+    /// - Parameter right: The right value of the trim rect.
+    /// - Parameter bottom: The bottom value of the trim rect.
     public init(left: Double, top: Double, right: Double, bottom: Double) {
         self.left = left
         self.top = top

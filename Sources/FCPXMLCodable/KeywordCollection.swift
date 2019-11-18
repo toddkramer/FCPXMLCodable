@@ -7,9 +7,12 @@
 import XMLCoder
 
 public struct KeywordCollection: XMLRepresentable {
-
+    
+    /// The name of the keyword collection.
     public var name: String
-
+    
+    /// Initializes a new keyword collection.
+    /// - Parameter name: The name of the keyword collection.
     public init(name: String) {
         self.name = name
     }

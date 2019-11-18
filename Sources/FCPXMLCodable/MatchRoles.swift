@@ -13,11 +13,19 @@ public struct MatchRoles: XMLRepresentable {
         case isEnabled = "enabled"
         case rule
     }
-
+    
+    /// The roles to match.
     public var roles: [Role]
+    
+    /// A Boolean value indicating whether the roles match is enabled.
     public var isEnabled: Bool = true
+    
+    /// The rule to use for the roles match.
     public var rule: Rule
-
+    
+    /// Initializes a new roles match.
+    /// - Parameter rule: The rule to use for the roles match, `includesAny` by default.
+    /// - Parameter roles: The roles to match.
     public init(rule: Rule = .includesAny, roles: [Role]) {
         self.rule = rule
         self.roles = roles
